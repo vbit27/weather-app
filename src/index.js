@@ -1,37 +1,23 @@
 const inputEl = document.getElementById('city-name');
 const searchBtn = document.getElementById('search-btn');
 
-async function getWeather(e) {
+function getWeather(e) {
   e.preventDefault();
   const name = inputEl.value;
 
-  const info = await fetch(
+  const info = fetch(
     `http://api.openweathermap.org/data/2.5/weather?q=${name}&appid=06390dd87d5264ce0e550a12e2f79b20`,
     {
       mode: 'cors',
     }
   )
-    .then((response) => {
-      if (response.ok) {
-        return response.json();
-      }
-      return Promise.reject(response);
-    })
-    .catch((err) => console.warn(err));
+    .then(handleErrors)
+    .then(() => console.log('pk'))
+    .catch((error) => console.log(error));
 
-  /*
-  console.log(info);
-  console.log({
-    name,
-    description: info.weather[0].description,
-    icon: info.weather[0].icon,
-    temp: info.main.temp,
-    feels: info.main.feels_like,
-    humidity: info.main.humidity,
-    wind: info.wind.speed,
-  });
-
-  */
+  if (info.cod === '404') {
+    return Promise.reject('er');
+  }
 
   return {
     name,
@@ -41,6 +27,13 @@ async function getWeather(e) {
     humidity: info.main.humidity,
     wind: info.wind.speed,
   };
+}
+
+function handleErrors(response) {
+  if (!response.ok) {
+    throw Error(response.statusText);
+  }
+  return response;
 }
 
 searchBtn.addEventListener('click', (e) => {
