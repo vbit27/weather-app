@@ -17,20 +17,34 @@ function getWeather(e) {
         if (resp.cod && resp.cod === '404') {
           throw Error(resp.message);
         }
+        console.log(resp);
         return resp;
       })
-      .then((resp) => ({
-        name,
-        description: resp.weather[0].description,
-        temp: resp.main.temp,
-        feels: resp.main.feels_like,
-        humidity: resp.main.humidity,
-        wind: resp.wind.speed,
-      }))
+      .then((resp) => filterWeatherData(resp))
       .catch((err) => {
         console.log(err);
       });
   } else alert('Put a valid city name');
+}
+
+function filterWeatherData(data) {
+  console.log({
+    name: data.name,
+    description: data.weather[0].description,
+    temp: data.main.temp,
+    feels: data.main.feels_like,
+    humidity: data.main.humidity,
+    wind: data.wind.speed,
+  });
+
+  return {
+    name: data.name,
+    description: data.weather[0].description,
+    temp: data.main.temp,
+    feels: data.main.feels_like,
+    humidity: data.main.humidity,
+    wind: data.wind.speed,
+  };
 }
 
 searchBtn.addEventListener('click', (e) => {
