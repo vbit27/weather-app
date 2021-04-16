@@ -4,8 +4,22 @@
   box-sizing: border-box;
 }
 
+html {
+  background: url(images/background3.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 .weather-container {
-  background-color: antiquewhite;
+  background: white;
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.1)
+  );
+  backdrop-filter: blur(1rem);
   width: 500px;
   height: 700px;
   position: fixed;
@@ -22,7 +36,6 @@
 .basic-info-container {
   grid-column-start: 1;
   grid-column-end: span 2;
-  background-color: aqua;
   display: flex;
   flex-direction: column;
   align-items: center;
