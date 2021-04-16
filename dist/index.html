@@ -19,17 +19,32 @@
     </form>
 
     <div class="weather-container">
+      <div class="button-container">
+        <div class="metric">C</div>
+        <div class="imperial">F</div>
+      </div>
       <div class="basic-info-container">
         <div class="city-name">Berlin</div>
         <div class="weather-description">Cold</div>
-
-        <div class="weather-icon"></div>
+        <img class="icon" alt="weather icon" />
         <div class="temperature">22Grad</div>
       </div>
-      <div class="wind-container"></div>
-      <div class="precipitation-container"></div>
-      <div class="feels-like-container"></div>
-      <div class="humidity-container"></div>
+      <div class="wind-container">
+        <p>Wind</p>
+        <p class="wind-data"></p>
+      </div>
+      <div class="pressure-container">
+        <p>Pressure</p>
+        <p class="pressure-data"></p>
+      </div>
+      <div class="feels-like-container">
+        <p>Feels like:</p>
+        <p class="feel-data"></p>
+      </div>
+      <div class="humidity-container">
+        <p>Humidity</p>
+        <p class="humidity-data"></p>
+      </div>
     </div>
     <script src="main.js"></script>
   </body>
