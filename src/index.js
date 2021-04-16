@@ -2,14 +2,40 @@ import renderInfo from './render';
 
 const inputEl = document.getElementById('city-name');
 const searchBtn = document.getElementById('search-btn');
+const metricBtn = document.querySelector('.metric');
+const imperialBtn = document.querySelector('.imperial');
 
-function getWeather(e) {
-  e.preventDefault();
-  const name = inputEl.value;
+const setWeather = ((e) => {
+  let unit = 'metric';
+  let name;
 
+  const search = (e) => {
+    e.preventDefault();
+    name = inputEl.value;
+    fetchWeather(name, unit);
+  };
+
+  const switchToMetric = () => {
+    unit = 'metric';
+    fetchWeather(name, unit);
+  };
+
+  const switchToImperial = () => {
+    unit = 'imperial';
+    fetchWeather(name, unit);
+  };
+
+  return {
+    search,
+    switchToMetric,
+    switchToImperial,
+  };
+})();
+
+function fetchWeather(name, unit) {
   if (name) {
     fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${name}&units=metric&appid=06390dd87d5264ce0e550a12e2f79b20`,
+      `http://api.openweathermap.org/data/2.5/weather?q=${name}&units=${unit}&appid=06390dd87d5264ce0e550a12e2f79b20`,
       {
         mode: 'cors',
       }
@@ -22,9 +48,12 @@ function getWeather(e) {
         console.log(resp);
         return resp;
       })
-      .then((resp) => filterWeatherData(resp))
+      .then((resp) => {
+        const selectedCityWeather = filterWeatherData(resp);
+        renderInfo(selectedCityWeather);
+      })
       .catch((err) => {
-        console.log(err);
+        alert(err);
       });
   } else alert('Put a valid city name');
 }
@@ -41,7 +70,7 @@ function filterWeatherData(data) {
     pressure: data.main.pressure,
   });
 
-  const weatherData = {
+  return {
     name: data.name,
     description: data.weather[0].description,
     icon: data.weather[0].icon,
@@ -51,10 +80,11 @@ function filterWeatherData(data) {
     wind: data.wind.speed,
     pressure: data.main.pressure,
   };
-
-  renderInfo(weatherData);
 }
 
 searchBtn.addEventListener('click', (e) => {
-  getWeather(e);
+  setWeather.search(e);
 });
+
+imperialBtn.addEventListener('click', setWeather.switchToImperial);
+metricBtn.addEventListener('click', setWeather.switchToMetric);
