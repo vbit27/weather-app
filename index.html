@@ -3,6 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
     <title>Weather-App</title>
   </head>
@@ -30,20 +35,32 @@
         <p class="temperature">22Grad</p>
       </div>
       <div class="wind-container info">
-        <p>Wind</p>
-        <p class="wind-data"></p>
+        <img src="./images/wind.svg" class="svg" />
+        <div>
+          <p>Wind</p>
+          <p class="wind-data"></p>
+        </div>
       </div>
       <div class="pressure-container info">
-        <p>Pressure</p>
-        <p class="pressure-data"></p>
+        <img src="./images/arrow-down.svg" class="svg" />
+        <div>
+          <p>Pressure</p>
+          <p class="pressure-data"></p>
+        </div>
       </div>
       <div class="feels-like-container info">
-        <p>Feels like:</p>
-        <p class="feel-data"></p>
+        <img src="./images/thermometer.svg" class="svg" />
+        <div>
+          <p>Feels like:</p>
+          <p class="feel-data"></p>
+        </div>
       </div>
       <div class="humidity-container info">
-        <p>Humidity</p>
-        <p class="humidity-data"></p>
+        <img src="./images/droplet.svg" class="svg" />
+        <div>
+          <p>Humidity</p>
+          <p class="humidity-data"></p>
+        </div>
       </div>
     </div>
     <script src="main.js"></script>
