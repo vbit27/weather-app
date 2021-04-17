@@ -1,3 +1,3 @@
 # weather-app
 
-A weather app build using API and Async/Await
+A weather app build using, vanilla JS, webpack and APIs.
