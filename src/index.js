@@ -6,7 +6,6 @@ const metricBtn = document.querySelector('.metric');
 const imperialBtn = document.querySelector('.imperial');
 
 function filterWeatherData(data) {
-  console.log(data.weather[0].id);
   return {
     id: data.weather[0].id,
     name: data.name,
