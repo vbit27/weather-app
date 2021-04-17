@@ -11,7 +11,7 @@ const imperialBtn = document.querySelector('.imperial');
 
 // Render Information
 export default function renderInfo(data, unit) {
-  iconEl.src = `http://openweathermap.org/img/wn/${data.icon}@2x.png`;
+  iconEl.src = `https://openweathermap.org/img/wn/${data.icon}@2x.png`;
   nameEl.textContent = data.name;
   descriptionEl.textContent = data.description;
   humidityEl.textContent = `${data.humidity} %`;

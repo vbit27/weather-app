@@ -23,7 +23,7 @@ function filterWeatherData(data) {
 // Fetch information
 function fetchWeather(name, unit) {
   fetch(
-    `http://api.openweathermap.org/data/2.5/weather?q=${name}&units=${unit}&appid=06390dd87d5264ce0e550a12e2f79b20`,
+    `https://api.openweathermap.org/data/2.5/weather?q=${name}&units=${unit}&appid=06390dd87d5264ce0e550a12e2f79b20`,
     {
       mode: 'cors',
     }
