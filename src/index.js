@@ -75,7 +75,7 @@ const setWeather = ((e) => {
 })();
 
 // Initialize
-fetchWeather('berlin', 'weather');
+fetchWeather('berlin', 'metric');
 
 searchBtn.addEventListener('click', (e) => {
   setWeather.search(e);
