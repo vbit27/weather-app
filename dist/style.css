@@ -79,6 +79,7 @@ button:hover {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 4fr 1fr 1fr;
+  position: relative;
 }
 
 /* SWITCH BUTTON */
