@@ -108,8 +108,8 @@ form {
   align-content: center;
   justify-content: center;
   width: 100%;
-  margin: 1rem;
-  align-self: flex-end;
+  margin: 0 1rem;
+  align-self: center;
 }
 
 input {
